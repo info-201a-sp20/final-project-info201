@@ -18,11 +18,11 @@ Our topic of interest is climate change. We are interested in this topic because
 
 
 ### Data-driven questions we hope to answer about this domain:
-- Can a positive change in climate change be seen due to corona and people staying indoors more?
-- Which factors have impacted sea levels in the world's oceans and in what ways? How much have sea levels risen?
-- Is there a significant increase in CO2 emissions in the atmosphere in the last 50 years? Is there a change at all?
-- How has climate change affected the world so far?
-- What countries are impacted? Are some countries impacted more than others?
+- Can a positive change in climate change be seen due to corona and people staying indoors more? (analysis of climate change during recent months can answer this question)
+- Which factors have impacted sea levels in the world's oceans and in what ways? How much have sea levels risen? (comparison of data for factors of sea leavels can answer this question)
+- Is there a significant increase in CO2 emissions in the atmosphere in the last 50 years? Is there a change at all? (analysis of CO2 emission data over last 50 years can answer this question)
+- How has climate change affected the world so far? (analysis of result factors of climate change can answer this question)
+- What countries are impacted? Are some countries impacted more than others? (comparison of country data related to climate change can answer this question)
 
 
 ## Finding Data
