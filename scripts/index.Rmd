@@ -1,14 +1,16 @@
 ---
 title: "Climate Change Midpoint"
 author: "Pranav Vasan, Arnav Gupta, Prerna Sheokand, Emily Giverts, Datta Dave"
+date: "5/25/2020"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
+source("scripts/chart1.R")
 library(knitr)
 library(dplyr)
 library(ggplot2)
-source("scripts/chart1.R")
+
 ```
 
 ```{r dataset, echo=FALSE}
