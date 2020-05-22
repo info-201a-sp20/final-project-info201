@@ -6,14 +6,10 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-source("scripts/chart1.R")
 library(knitr)
 library(dplyr)
 library(ggplot2)
 
 ```
 
-```{r dataset, echo=FALSE}
-fossil_fuel_emission <- read.csv("data/fossil-fuel-co2-emissions-by-nation.csv")
-```
 
