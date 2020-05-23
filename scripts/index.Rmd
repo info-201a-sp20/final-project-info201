@@ -7,5 +7,41 @@ output: html_document
 
 ```{r setup, include=FALSE}
 source("scripts/chart1.R")
+source("scripts/chart2.R")
+library("dplyr")
+library("ggplot2")
+library("tidyr")
+library("lintr")
+lint("scripts/chart1.R")
+lint("scripts/chart2.R")
 ```
+
+```{r dataset, echo=FALSE}
+emission_data <- read.csv(file = "data/fossil-fuel-co2-emissions-by-nation.csv",
+                          stringsAsFactors = FALSE)
+```
+
+
+## Introduction
+
+Climate change has been a popular and important topic of discussion amongst people for several years now. Numerous scientists have gathered vast amounts of data to dicover trends in climate change over the decades. This project attempts to gather data from the last several centuries regarding fossil fuel carbon dioxide emission. This is very important, especially in the current day, because it will allow people to understand the effect of climate change and start taking preventive measures. Our [dataset](https://datahub.io/core/co2-fossil-by-nation) contains data from the Carbon Dioxide Information Analysis Center (CDIAC) for numerous countries from 1751 to 2014.
+
+## Summary Information
+
+
+
+## Summary Table
+
+
+
+## Chart 1
+
+
+
+## Chart 2
+
+
+
+## Chart 3
+
 
