@@ -1,4 +1,4 @@
-function(emission_data) {
+line_graph <- function(emission_data) {
   last_50_years <- emission_data %>%
     group_by(Year) %>%
     summarise(total = sum(Total)) %>%

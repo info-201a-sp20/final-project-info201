@@ -6,6 +6,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
+library("knitr")
 source("scripts/chart1.R")
 source("scripts/chart2.R")
 library("dplyr")
@@ -36,10 +37,22 @@ Climate change has been a popular and important topic of discussion amongst peop
 
 ## Chart 1
 
+```{r line_graph, echo=FALSE}
+line_graph(emission_data)
+```
+
 
 
 ## Chart 2
 
+```{r bar_chart, echo=FALSE}
+bar_graph(emission_data)
+```
+- The purpose of this chart was to look at a breakdown of each carbon emitting source in relation to the total for the top 10 carbon emitting countries in the most recent year available (2014). 
+- In 2014, cement was relatively the smallest carbon source used in each of the 10 countries.
+- In 2014, China and India used a majority of solid fuel relative to all carbon emission sources.
+- Saudi Arabia and the Islamic Republic of Iran used no solid fuel in 2014.
+- Gas Flaring was only used in the Islamic Republic of Iran and the Russian Federation.
 
 
 ## Chart 3

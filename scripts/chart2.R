@@ -1,4 +1,4 @@
-function(emission_data) {
+bar_graph <- function(emission_data) {
   #data for top 10 emitting countries in 2014
   data_2014 <- emission_data %>%
     filter(Year == 2014) %>%
