@@ -6,10 +6,6 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-library(knitr)
-library(dplyr)
-library(ggplot2)
-
+source("scripts/chart1.R")
 ```
-
 
