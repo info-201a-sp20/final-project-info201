@@ -22,7 +22,7 @@ stacked_graph <- ggplot(data = gather_data) +
   ylab("Million metric tons of C") +
   ggtitle("Top 10 CO2 Emitting Countries in 2014") +
   coord_flip() +
-  scale_fill_discrete(name = "Carbon Emission",
+  scale_fill_discrete(name = "Carbon Emission Source",
                      labels = c("Cement", "Gas Flaring",
                                 "Gas Fuel", "Liquid Fuel", "Solid Fuel"))
 
