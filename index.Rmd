@@ -7,14 +7,20 @@ output: html_document
 
 ```{r setup, include=FALSE}
 library("knitr")
+source("scripts/summaryinformation.R")
 source("scripts/chart1.R")
 source("scripts/chart2.R")
+source("scripts/chart3.R")
+source("scripts/chart4.R")
 library("dplyr")
 library("ggplot2")
 library("tidyr")
 library("lintr")
+lint("scripts/summaryinformation.R")
 lint("scripts/chart1.R")
 lint("scripts/chart2.R")
+lint("scripts/chart3.R")
+lint("scripts/chart4.R")
 ```
 
 ```{r dataset, echo=FALSE}
@@ -29,7 +35,10 @@ Climate change has been a popular and important topic of discussion amongst peop
 
 ## Summary Information
 
-
+```{r summary_info, echo=FALSE}
+summary_info <- get_summary_info(emission_data)
+```
+Between 1751 and 2014, inclusive, `r summary_info$country_with_most_emissions` was the nation that emitted the most fossil fuel carbon dioxide. Similarly, the year with highest amount of total emission was `r summary_info$year_with_most_emissions`. The dataset shows that `r summary_info$most_emissions_per_capita` had the most total emissions per capita and `r summary_info$year_most_emissions_per_capita` was the year with the most emissions per capita. The country that did best in terms of emitting the least fossil fuel carbon dioxide between these years was `r summary_info$country_with_least_emissions`. Likewise, out of all of the years, `r summary_info$year_with_least_emissions` was the year that had the least emissions among all of the countries combined.
 
 ## Summary Table
 
@@ -41,6 +50,10 @@ Climate change has been a popular and important topic of discussion amongst peop
 line_graph(emission_data)
 ```
 
+- This chart demonstrates how the total amount of fossil fuel CO2 emission has steadily gone up over the last 50 years (1964-2014). It focuses on only the recent 50 years as a smaller sample to show how quickly and continuously this is rising.
+- Moreover, this chart answers the question of how climate change has been getting impacted in the most recent half century. 
+- Starting at less than 4e+06 in 1964, the total amount of fossil fuel CO2 emission has reached more than 8e+06. This chart shows that in the following years, these numbers are projected to only continue rising, which can be very detrimental in terms of climate change and environmental harm.
+- This is very important to visualize because it truly shows the impact that fossil fuel CO2 emission is having on this earth. This chart considers all countries together, showing that these numbers are increasing for the planet as a whole. 
 
 
 ## Chart 2
@@ -48,6 +61,7 @@ line_graph(emission_data)
 ```{r bar_chart, echo=FALSE}
 bar_graph(emission_data)
 ```
+
 - The purpose of this chart was to look at a breakdown of each carbon emitting source in relation to the total for the top 10 carbon emitting countries in the most recent year available (2014). 
 - In 2014, cement was relatively the smallest carbon source used in each of the 10 countries.
 - In 2014, China and India used a majority of solid fuel relative to all carbon emission sources.
@@ -57,4 +71,10 @@ bar_graph(emission_data)
 
 ## Chart 3
 
+```{r interactive_map, echo=FALSE}
+line_plot(emission_data)
+```
 
+- One of the main goals for the exploration of this dataset was to observe change in fossil fuel contribution. This chart gathers information about the top five biggest contributors to fossil fuel emissions. This enables us to see similarities and differences between these nations as well as predict what could have contributed to changes in our data.
+- Since this chart compares years to total emissions per country, we see how the United  Kingdom had a steady head start compared to the other nations which can be attributed to the Industrial revolution. In the same sense, we can see how China started to contribute  its own emissions much later on which we can predict to be a result of political and social change within the country.
+- Japan’s fossil fuel emissions, although one of the greatest during the late 1900s, evens out in the early 2000s. This could be a result of heightened awareness of the environmental effects of fossil fuel emissions on the environment as well as increased regulations.
