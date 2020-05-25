@@ -71,7 +71,7 @@ bar_graph(emission_data)
 
 ## Chart 3
 
-```{r interactive_map, echo=FALSE}
+```{r line_plot, echo=FALSE}
 line_plot(emission_data)
 ```
 
