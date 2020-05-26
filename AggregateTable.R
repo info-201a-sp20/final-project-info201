@@ -20,7 +20,7 @@ emission_data <- read.csv("data/fossil-fuel-co2-emissions-by-nation.csv")
 aggreagted_table <- plot_ly (
   type ='table', 
   columnwidth = c(1,1), 
-  columnorder = c(0, 1),
+  columnorder = c(1, 1),
   header = list(
     values = c("Country","Total Number of Emissions"),
     align = c("center", "center"),
@@ -39,4 +39,5 @@ return(aggreagted_table)
  }
  
  top_ten_countries(emission_data)
+ 
  
