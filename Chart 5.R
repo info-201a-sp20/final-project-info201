@@ -1,15 +1,21 @@
-emission_data <- read.csv("data/fossil-fuel-co2-emissions-by-nation.csv")
-library("dplyr")
-library("ggplot2")
-library("plotly")
+install.packages("dplyr")
+install.packages("ggplot2")
+install.packages("plotly")
+install.packages("lintr")
+install.packages("leaflet")
+library(dplyr)
+library(ggplot2)
+library(plotly)
 library(lintr)
 library(leaflet)
 
+emission_data <- read.csv("data/fossil-fuel-co2-emissions-by-nation.csv")
+
  top_ten_countries <- function (emission_data) {
-   emission_data <- emission_data %>% 
+   emissions <- emission_data %>% 
      group_by(Country) %>%
      summarize(total_emission = sum(Total)) %>%
-     top_n(10)
+     top_n(-10)
  
 aggreagted_table <- plot_ly (
   type ='table', 
@@ -23,7 +29,7 @@ aggreagted_table <- plot_ly (
     font = list(family = "Arial", size = 14, color = "white")
   ), 
   cells = list(
-    values = rbind(emission_data$Country, emission_data$total_emission),
+    values = rbind(emissions$Country, emissions$total_emission),
     align = c("center", "center"),
     line = list(color = "black", width = 1),
     font = list(family = "Arial", size = 14, color = c("black"))
@@ -31,4 +37,6 @@ aggreagted_table <- plot_ly (
 )
 return(aggreagted_table)
  }
+ 
+ top_ten_countries(emission_data)
  
