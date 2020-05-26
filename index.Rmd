@@ -51,7 +51,6 @@ Between 1751 and 2014, inclusive, `r summary_info$country_with_most_emissions` w
 ```{r summary_table, echo=FALSE, message=FALSE}
 top_ten_countries(emission_data)
 ```
-
 This table was included to display the total number of fossil fuel carbon dioxide emissions for the top 10 countries that emitted the most between 1751 and 2014. This reveals the countries that have contributed the most to climate change through their emission of fossil fuel CO2 over the last several centuries. It also shows the exact number of emissions for each of these countries. This summary table proves exactly which countries need to reduce their fossil fuel carbon dioxide emissions comparative to one another. This allows us to also visualize these numbers in a smaller sample size. The countries that fit this top 10 list are world leaders in terms of their economies, businesses, etc. Therefore, it makes more sense to compare them to one another rather than every other world country, which this table satisfies. According to the table, the United States of America emit the most amount of fossil fuel CO2 in the world, which we can now use to make improvements.
 
 

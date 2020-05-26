@@ -2,7 +2,7 @@ top_ten_countries <- function(emission_data) {
   emissions <- emission_data %>%
     group_by(Country) %>%
     summarize(total_emission = sum(Total)) %>%
-    top_n(10)
+    top_n(10) %>% arrange(-total_emission)
 
   aggregate_table <- plot_ly(
     type = "table",
