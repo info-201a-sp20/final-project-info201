@@ -5,12 +5,13 @@ bar_data <- function(emission_data) {
      top_n(10)
 
    bar_chart <- ggplot(liquid_fuel) +
-      geom_bar(mapping = aes(x = Country, fill = Solid.Fuel),
+      geom_bar(mapping = aes(x = Country, fill = total_fuel),
                color = "dark blue") +
       labs(
         title = "Total Fossil Fuels CO2 Emissions By Solid Fuels",
-        X = "Country",
-        Y = "Total Solid Fuel",
+        x = "Country",
+        y = "Total Solid Fuel",
+        fill = "",
         legend = FALSE
       )
     return(bar_chart)
