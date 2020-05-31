@@ -1,0 +1,100 @@
+---
+title: "Climate Change Midpoint"
+author: "Pranav Vasan, Arnav Gupta, Prerna Sheokand, Emily Giverts, Datta Dave"
+date: "5/25/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library("knitr")
+source("scripts/summaryinformation.R")
+source("scripts/AggregateTable.R")
+source("scripts/chart1.R")
+source("scripts/chart2.R")
+source("scripts/chart3.R")
+source("scripts/chart4.R")
+library("dplyr")
+library("ggplot2")
+library("tidyr")
+library("lintr")
+library("plotly")
+library("leaflet")
+lint("scripts/summaryinformation.R")
+lint("scripts/AggregateTable.R")
+lint("scripts/chart1.R")
+lint("scripts/chart2.R")
+lint("scripts/chart3.R")
+lint("scripts/chart4.R")
+```
+
+```{r dataset, echo=FALSE}
+emission_data <- read.csv(file = "data/fossil-fuel-co2-emissions-by-nation.csv",
+                          stringsAsFactors = FALSE)
+```
+
+
+## Introduction
+
+Climate change has been a popular and important topic of discussion amongst people for several years now. Numerous scientists have gathered vast amounts of data to dicover trends in climate change over the decades. This project attempts to gather data from the last several centuries regarding fossil fuel carbon dioxide emission. This is very important, especially in the current day, because it will allow people to understand the effect of climate change and start taking preventive measures. Our [dataset](https://datahub.io/core/co2-fossil-by-nation) contains data from the Carbon Dioxide Information Analysis Center (CDIAC) for numerous countries from 1751 to 2014.
+
+
+## Summary Information
+
+```{r summary_info, echo=FALSE}
+summary_info <- get_summary_info(emission_data)
+```
+Between 1751 and 2014, inclusive, `r summary_info$country_with_most_emissions` was the nation that emitted the most fossil fuel carbon dioxide. Similarly, the year with highest amount of total emission was `r summary_info$year_with_most_emissions`. The dataset shows that `r summary_info$most_emissions_per_capita` had the most total emissions per capita and `r summary_info$year_most_emissions_per_capita` was the year with the most emissions per capita. The country that did best in terms of emitting the least fossil fuel carbon dioxide between these years was `r summary_info$country_with_least_emissions`. Likewise, out of all of the years, `r summary_info$year_with_least_emissions` was the year that had the least emissions among all of the countries combined.
+
+
+## Summary Table
+
+```{r summary_table, echo=FALSE, message=FALSE}
+top_ten_countries(emission_data)
+```
+This table was included to display the total number of fossil fuel carbon dioxide emissions for the top 10 countries that emitted the most between 1751 and 2014. This reveals the countries that have contributed the most to climate change through their emission of fossil fuel CO2 over the last several centuries. It also shows the exact number of emissions for each of these countries. This summary table proves exactly which countries need to reduce their fossil fuel carbon dioxide emissions comparative to one another. This allows us to also visualize these numbers in a smaller sample size. The countries that fit this top 10 list are world leaders in terms of their economies, businesses, etc. Therefore, it makes more sense to compare them to one another rather than every other world country, which this table satisfies. According to the table, the United States of America emit the most amount of fossil fuel CO2 in the world, which we can now use to make improvements.
+
+
+## Chart 1
+
+```{r line_graph, echo=FALSE}
+line_graph(emission_data)
+```
+
+- This chart demonstrates how the total amount of fossil fuel CO2 emission has steadily gone up over the last 50 years (1964-2014). It focuses on only the recent 50 years as a smaller sample to show how quickly and continuously this is rising.
+- Moreover, this chart answers the question of how climate change has been getting impacted in the most recent half century. 
+- Starting at less than 4e+06 in 1964, the total amount of fossil fuel CO2 emission has reached more than 8e+06. This chart shows that in the following years, these numbers are projected to only continue rising, which can be very detrimental in terms of climate change and environmental harm.
+- This is very important to visualize because it truly shows the impact that fossil fuel CO2 emission is having on this earth. This chart considers all countries together, showing that these numbers are increasing for the planet as a whole. 
+
+
+## Chart 2
+
+```{r bar_chart, echo=FALSE}
+bar_graph(emission_data)
+```
+
+- The purpose of this chart was to look at a breakdown of each carbon emitting source in relation to the total for the top 10 carbon emitting countries in the most recent year available (2014). 
+- In 2014, cement was relatively the smallest carbon source used in each of the 10 countries.
+- In 2014, China and India used a majority of solid fuel relative to all carbon emission sources.
+- Saudi Arabia and the Islamic Republic of Iran used no solid fuel in 2014.
+- Gas Flaring was only used in the Islamic Republic of Iran and the Russian Federation.
+
+
+## Chart 3
+
+```{r line_plot, echo=FALSE, message=FALSE}
+line_plot(emission_data)
+```
+
+- One of the main goals for the exploration of this dataset was to observe change in fossil fuel contribution. This chart gathers information about the top five biggest contributors to fossil fuel emissions. This enables us to see similarities and differences between these nations as well as predict what could have contributed to changes in our data.
+- Since this chart compares years to total emissions per country, we see how the United  Kingdom had a steady head start compared to the other nations which can be attributed to the Industrial revolution. In the same sense, we can see how China started to contribute  its own emissions much later on which we can predict to be a result of political and social change within the country.
+- Japan’s fossil fuel emissions, although one of the greatest during the late 1900s, evens out in the early 2000s. This could be a result of heightened awareness of the environmental effects of fossil fuel emissions on the environment as well as increased regulations.
+
+```{r bar_data, echo=FALSE, fig.width= 18, message=FALSE}
+bar_data(emission_data)
+```
+
+- This bar chart alphabetically displays the top 10 countries in terms of total fossil fuel carbon dioxide emissions. The lighter the color, the higher the total fossil fuel carbon dioxide emissions.
+- The chart shows the amount of solid fuel emitted from these top 10 countries.
+- It was inluded to demonstrate the exact amounts of emissions from these countries in a more clear color-based visualization.
+- The United States of America is the lightest and, therefore, emit the most fossil fuel CO2 in the world
+- Out of the these top 10 countries, countries like Japan, South Africa, and France (including Monaco) comparatively emit less fossil fuel CO2. 
