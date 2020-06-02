@@ -9,8 +9,6 @@ server <- function(input, output) {
   })
   
   output$stackedplotly <- renderPlotly({
-    emission_data <- read.csv("data/fossil-fuel-co2-emissions-by-nation.csv")
-    
     #data for top 10 emitting countries in desired
     data_filtered <- emission_data %>%
       filter(Year == input$year_graph) %>%
