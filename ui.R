@@ -13,5 +13,4 @@ ui <- navbarPage("Climate Change",
   page_one,
   page2,
   page_three,
-  page4,
-  page5)
+  page4)
