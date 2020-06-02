@@ -1,3 +1,9 @@
+library(ggplot2)
+library(dplyr)
+library(leaflet)
+
+emission_data <- read.csv("data/fossil-fuel-co2-emissions-by-nation.csv")
+
 line_plot <- function(emission_data) {
   #find countries with largest overall combined totals
   max <- emission_data %>%
@@ -21,8 +27,11 @@ line_plot <- function(emission_data) {
 
   #create plot itself
   plot <- ggplot(data = top_five) +
-    geom_smooth(mapping = aes(x = Year, y = Total, color = Country)) +
+    geom_smooth(mapping = aes(x = Year, y = Gas.Fuel, color = Country)) +
     ggtitle("Total Fossil Fuel Change of Top Five Countries")
 
   return(plot)
 }
+
+line_plot(emission_data)
+
