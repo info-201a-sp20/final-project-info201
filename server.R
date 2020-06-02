@@ -101,4 +101,58 @@ server <- function(input, output) {
     
     return(p)
   })
+  
+  output$table <- renderTable({
+    emissions <- emission_data %>%
+      group_by(Country) %>%
+      summarize(total_emission = sum(Total)) %>%
+      top_n(10) %>% 
+      arrange(-total_emission)
+    
+    
+    emissions
+  })
+  
+  output$year_plot <- renderPlot({
+    last_50_years <- emission_data %>%
+      group_by(Year) %>%
+      summarise(total = sum(Total)) %>%
+      top_n(5, Year) %>%
+      arrange(Year)
+    
+    chart <- ggplot(last_50_years) +
+      geom_col(mapping = aes(x = Year, y = total), color = "dark red") +
+      labs(
+        title = "Total Fossil Fuel CO2 Emission Over 50 Years (1964-2014)",
+        x = "Year",
+        y = "Total Amount of Fossil Fuel CO2 Emission",
+        legend = FALSE
+      )
+    return(chart)
+  })
+  
+  output$country_plot <- renderPlot({
+    data_2014 <- emission_data %>%
+      filter(Year == 2014) %>%
+      arrange(-Total) %>%
+      slice(1:10)
+    
+    #prepare the data to be able to place into a stacked chart
+    gather_data <- data_2014 %>%
+      select(Country, Solid.Fuel, Liquid.Fuel, Gas.Fuel, Cement, Gas.Flaring) %>%
+      gather(key = carbon_emissions, value = type, -Country)
+    
+    #create a stacked bar chart based off emission type
+    #of top 10 emitting countries
+    stacked_graph <- ggplot(data = gather_data) +
+      geom_col(mapping = aes(x = Country, y = type, fill = carbon_emissions)) +
+      xlab("Country") +
+      ylab("Million metric tons of C") +
+      ggtitle("Top 10 CO2 Emitting Countries in 2014") +
+      coord_flip() +
+      scale_fill_discrete(name = "Carbon Emission Source",
+                          labels = c("Cement", "Gas Flaring",
+                                     "Gas Fuel", "Liquid Fuel", "Solid Fuel"))
+    return(stacked_graph)
+  })
 }
