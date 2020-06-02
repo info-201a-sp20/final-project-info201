@@ -9,9 +9,10 @@ source("page3.R")
 source("page4.R")
 source("page5i.R")
 
-ui <- navbarPage("Climate Change",
+ui <- fluidPage(navbarPage(
+  includeCSS("style.css"),
   page_one,
   page2,
   page_three,
   page4, 
-  page5)
+  page5))

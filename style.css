@@ -1,0 +1,27 @@
+@import url("//fonts.googleapis.com/css?family=Lobster|Cabin:400,700");
+
+h1 {
+  font-family: 'Cabin', cursive;
+  font-weight: 900;
+  line-height: 3.0;
+  color: #0000A9  ;
+    text-shadow: 2px 2px 2px #33A2FF;
+}
+
+p{
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;;
+  font-size: 18px;
+  letter-spacing: -1px;
+  word-spacing: 0.2px;
+  color: #0030E1  ;
+    font-weight: normal;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+}
+
+body {
+  background-color: #F9E79F;
+  border: 5px dotted rgba(0,89,138,0.57);
+}
