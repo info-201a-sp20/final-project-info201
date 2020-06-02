@@ -13,9 +13,9 @@ server <- function(input, output) {
       top_n(50, Year) %>%
       arrange(Year)
 
-    fuel_amount <- last_50_years[[input$selected_fuel]]
+    amount <- last_50_years[[input$selected_fuel]]
     fuel_plot <- ggplot(data = last_50_years) +
-      geom_line(mapping = aes(x = Year, y = fuel_amount), color = "dark red") +
+      geom_line(mapping = aes(x = Year, y = amount), color = "dark red") +
       labs(
         title = "Fossil Fuel CO2 Emission (1964-2014)",
         x = "Year",
@@ -23,6 +23,6 @@ server <- function(input, output) {
         legend = FALSE
       )
     ggplotly(fuel_plot)
-    fuel_plot
+    return(fuel_plot)
   })
 }

@@ -89,6 +89,8 @@ line_plot(emission_data)
 - Since this chart compares years to total emissions per country, we see how the United  Kingdom had a steady head start compared to the other nations which can be attributed to the Industrial revolution. In the same sense, we can see how China started to contribute  its own emissions much later on which we can predict to be a result of political and social change within the country.
 - Japan’s fossil fuel emissions, although one of the greatest during the late 1900s, evens out in the early 2000s. This could be a result of heightened awareness of the environmental effects of fossil fuel emissions on the environment as well as increased regulations.
 
+## Chart 4
+
 ```{r bar_data, echo=FALSE, fig.width= 18, message=FALSE}
 bar_data(emission_data)
 ```

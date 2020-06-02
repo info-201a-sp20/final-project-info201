@@ -13,13 +13,12 @@ year_input <- sliderInput(
 
 
 feature_input <- fluidPage(
-  
-  
+
   radioButtons("feature", label = h3("Emission Type"),
-                              choices = list("Total" = "Total", 
-                                             "Liquid Fuel" = "Liquid.Fuel", 
+                              choices = list("Total" = "Total",
+                                             "Liquid Fuel" = "Liquid.Fuel",
                                              "Gas Fuel" = "Gas.Fuel",
-                                             "Solid Fuel" = "Solid.Fuel"), 
+                                             "Solid Fuel" = "Solid.Fuel"),
                               selected = "Total"),
 
 )
@@ -28,29 +27,23 @@ feature_input <- fluidPage(
 
 page4 <- tabPanel(
   "Fossil Fuel Change of Top Five Countries",
-  
-  
+
+
   fluidPage(
-  
+
     headerPanel("Fossil Fuel Change of Top Five Countries"),
-    
     p(
-      "The purpose of this chart is to observe the change over time of various types of 
-    Carbon Dioxide emmissions based on the nations that contributed most to that polution. 
-    The years can be changed to see these changed at a closer point of view as well as to predict 
-    what could have contributed to the changes."
+      "The purpose of this chart is to observe the change over time of
+      various types of Carbon Dioxide emmissions based on the nations that
+      contributed most to that polution. The years can be changed to see
+      these changed at a closer point of view as well as to predict what
+      could have contributed to the changes."
     ),
-    
+
     year_input,
-  
+
     feature_input,
-  
-    plotOutput("plot")
+
+    plotlyOutput("plot")
   )
 )
-
-
-
-
-
-
