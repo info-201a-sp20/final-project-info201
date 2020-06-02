@@ -4,7 +4,17 @@ library("ggplot2")
 library("dplyr")
 library("tidyr")
 
+source("page1.R")
+source("page2.R")
+source("page3.R")
+source("page4.R")
+source("page5i.R")
+source("page2_server.R")
+source("page3_server.R")
+source("page4_server.R")
 source("ui.R")
 source("server.R")
+
+emission_data <- read.csv("data/fossil-fuel-co2-emissions-by-nation.csv")
 
 shinyApp(ui = ui, server = server)

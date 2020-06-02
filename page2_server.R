@@ -23,6 +23,6 @@ server <- function(input, output) {
         legend = FALSE
       )
     ggplotly(fuel_plot)
-    fuel_plot
+    return(fuel_plot)
   })
 }

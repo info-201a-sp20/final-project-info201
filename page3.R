@@ -20,8 +20,8 @@ page_three <- tabPanel(
   headerPanel("Breakdown Emissions"),
   p(
     "The purpose of this chart is to look at a breakdown of each carbon emitting
-    source in relation to the total for the top 10 carbon emitting countries in the
-    year of your choosing (1751-2014)"
+    source in relation to the total for the top 10 carbon emitting countries in
+    the year of your choosing (1751-2014)."
   ),
   sidebarLayout(
     side_panel,

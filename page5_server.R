@@ -1,10 +1,9 @@
-
 server <- function(input, output) {
   output$summary_info_per_country <- renderPlotly({
    emissions <- emission_data %>%
       group_by(input$country_choice) %>%
       summarize(total_emission = sum(Total)) %>%
-      top_n(10) %>% 
+      top_n(10) %>%
      arrange(-total_emission)
    aggregate_table <- plot_ly(
       type = "table",
@@ -26,4 +25,3 @@ server <- function(input, output) {
     )
   })
 }
-

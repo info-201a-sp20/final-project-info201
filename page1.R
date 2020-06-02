@@ -12,7 +12,7 @@ page_one <- tabPanel(
         height = "100%", width = "100%"
       )
     ),
-    
+
     mainPanel(
       p("Climate change has been a popular and important topic of
       discussion amongst people for several years now. Numerous scientists
@@ -21,7 +21,7 @@ page_one <- tabPanel(
       several centuries regarding fossil fuel carbon dioxide emission. This
       is very important, especially in the current day, because it will
       allow people to understand the effect of climate change and start
-      taking preventive measures. Our dataset contains data from the Carbon 
+      taking preventive measures. Our dataset contains data from the Carbon
       Dioxide Information Analysis Center (CDIAC) for numerous countries from
       1751 to 2014."),
 
@@ -39,7 +39,7 @@ page_one <- tabPanel(
             emitting countries?")),
       h5("In order to address this question, we can plot the top fossil fuel
       emitting countries and analyze the change in their emission total."),
-      
+
       h3(a("Click here to view the dataset ",
            href = "https://datahub.io/core/co2-fossil-by-nation"))
     )
