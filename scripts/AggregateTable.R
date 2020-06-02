@@ -1,8 +1,14 @@
+emission_data <- read.csv("data/fossil-fuel-co2-emissions-by-nation.csv")
+library(plotly)
+library(dplyr)
+
+
 top_ten_countries <- function(emission_data) {
   emissions <- emission_data %>%
     group_by(Country) %>%
     summarize(total_emission = sum(Total)) %>%
-    top_n(10) %>% arrange(-total_emission)
+    top_n(10) %>% 
+    arrange(-total_emission)
 
   aggregate_table <- plot_ly(
     type = "table",
@@ -24,3 +30,8 @@ top_ten_countries <- function(emission_data) {
   )
   return(aggregate_table)
 }
+
+other_summary_table <- emission_data %>%
+  group_by(Country) %>%
+  summary(total_emissions = sum(Total), total_solid = sum(Solid.Fuel), total_year = sum(Year))
+other_summary_table
