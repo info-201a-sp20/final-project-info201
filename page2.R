@@ -1,5 +1,3 @@
-emission_data <- read.csv("data/fossil-fuel-co2-emissions-by-nation.csv")
-
 page2 <- tabPanel(
   "Fossil Fuel Emission Over Last 50 Years",
   titlePanel("Fossil Fuel Emission Over Last 50 Years"),
