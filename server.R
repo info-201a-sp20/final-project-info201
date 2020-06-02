@@ -1,3 +1,7 @@
+library("plotly")
+library("ggplot2")
+library("dplyr")
+library("tidyr")
 server <- function(input, output) {
   output$line_graph <- renderPlotly({
 
