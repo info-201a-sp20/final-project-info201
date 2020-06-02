@@ -45,7 +45,7 @@ page4 <- tabPanel(
   
     feature_input,
   
-    plotOutput("plot")
+    plotlyOutput("plot")
   )
 )
 

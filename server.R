@@ -22,9 +22,9 @@ server <- function(input, output) {
       top_n(50, Year) %>%
       arrange(Year)
     
-    fuel_amount <- last_50_years[[input$selected_fuel]]
+    amount <- last_50_years[[input$selected_fuel]]
     fuel_plot <- ggplot(data = last_50_years) +
-      geom_line(mapping = aes(x = Year, y = fuel_amount), color = "dark red") +
+      geom_line(mapping = aes(x = Year, y = amount), color = "dark red") +
       labs(
         title = "Fossil Fuel CO2 Emission (1964-2014)",
         x = "Year",
@@ -65,7 +65,7 @@ server <- function(input, output) {
     return(stacked_graph)
   })
   
-  output$plot <- renderPlot({
+  output$plot <- renderPlotly({
     
     plot_data <- emission_data %>%
       filter(Year > input$year_choice[1], Year < input$year_choice[2])
@@ -93,8 +93,11 @@ server <- function(input, output) {
     
     
     #create plot itself
+    amount <- top_five[[input$feature]]
     p <- ggplot(data = top_five) +
-      geom_smooth(mapping = aes(x = Year, y = top_five[[input$feature]], color = Country))
+      geom_smooth(mapping = aes(x = Year, y = amount, color = Country))
+    
+    ggplotly(p)
     
     return(p)
   })
