@@ -1,7 +1,6 @@
 page_one <- tabPanel(
   "Overview",
-  headerPanel(strong("Overview")),
-
+  headerPanel(strong("Climate Change: Overview")),
   sidebarLayout(
     sidebarPanel(
       img("",
