@@ -1,9 +1,4 @@
-emission_data <- read.csv("data/fossil-fuel-co2-emissions-by-nation.csv")
-
-
 year_range <- range(emission_data$Year)
-
-
 
 year_input <- sliderInput(
   inputId = "year_choice",
