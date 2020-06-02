@@ -1,6 +1,6 @@
 page2 <- tabPanel(
   "Fossil Fuel Emission Over Last 50 Years",
-  titlePanel("Fossil Fuel Emission Over Last 50 Years"),
+  headerPanel("Fossil Fuel Emission Over Last 50 Years"),
 
   sidebarLayout(
     sidebarPanel(

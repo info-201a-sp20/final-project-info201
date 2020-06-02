@@ -13,7 +13,7 @@ mainPanel <- mainPanel(
 
 page5 <- tabPanel(
   "Top Ten Countries With The Highest Emissions",
-  titlePanel("Top Ten Countries With The Highest Emissions"),
+  headerPanel("Top Ten Countries With The Highest Emissions"),
   sidebarLayout(
     side_panel,
     main_panel

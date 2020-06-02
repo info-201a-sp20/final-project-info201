@@ -17,6 +17,7 @@ main_panel <- mainPanel(
 
 page_three <- tabPanel(
   "Breakdown Emissions",
+  headerPanel("Breakdown Emissions"),
   p(
     "The purpose of this chart is to look at a breakdown of each carbon emitting
     source in relation to the total for the top 10 carbon emitting countries in the

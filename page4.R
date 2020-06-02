@@ -28,7 +28,7 @@ page4 <- tabPanel(
   
   fluidPage(
   
-    titlePanel("Fossil Fuel Change of Top Five Countries"),
+    headerPanel("Fossil Fuel Change of Top Five Countries"),
     
     p(
       "The purpose of this chart is to observe the change over time of various types of 

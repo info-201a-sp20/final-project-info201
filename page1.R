@@ -1,6 +1,6 @@
 page_one <- tabPanel(
   "Overview",
-  titlePanel(strong("Overview")),
+  headerPanel(strong("Overview")),
 
   sidebarLayout(
     sidebarPanel(
