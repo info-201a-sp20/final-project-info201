@@ -6,7 +6,6 @@ library("tidyr")
 source("page2_server.R")
 source("page3_server.R")
 source("page4_server.R")
-source("page5_server.R")
 
 emission_data <- read.csv("data/fossil-fuel-co2-emissions-by-nation.csv")
 
@@ -66,32 +65,6 @@ server <- function(input, output) {
     return(stacked_graph)
   })
   
-  output$summary_info_per_country <- renderPlotly({
-    emissions <- emission_data %>%
-      group_by(input$country_choice) %>%
-      summarize(total_emission = sum(Total)) %>%
-      top_n(10) %>% 
-      arrange(-total_emission)
-    aggregate_table <- plot_ly(
-      type = "table",
-      columnwidth = c(1, 1),
-      columnorder = c(0, 1),
-      header = list(
-        values = c("Country", "Total Number of Emissions"),
-        align = c("center", "center"),
-        line = list(width = 1, color = "black"),
-        fill = list(color = "rgb(27, 48, 149)"),
-        font = list(family = "Arial", size = 14, color = "white")
-      ),
-      cells = list(
-        values = rbind(emissions$Country, emissions$total_emission),
-        align = c("center", "center"),
-        line = list(color = "black", width = 1),
-        font = list(family = "Arial", size = 14, color = c("black"))
-      )
-    )
-  })
-  
   output$plot <- renderPlot({
     
     plot_data <- emission_data %>%
@@ -99,8 +72,10 @@ server <- function(input, output) {
     
     max <- emission_data %>%
       group_by(Country) %>%
-      summarize(tot = sum(Total)) %>%
-      arrange(-tot) %>%
+      summarise(Total = sum(Total),
+                Solid.Fuel = sum(Solid.Fuel),
+                Liquid.Fuel = sum(Liquid.Fuel),
+                Gas.Fuel = sum(Gas.Fuel)) %>%
       select(Country) 
     
     #filter out data for countries of top five largest fossil fuel totals
@@ -119,7 +94,7 @@ server <- function(input, output) {
     
     #create plot itself
     p <- ggplot(data = top_five) +
-      geom_smooth(mapping = aes(x = Year, y = Total, color = Country))
+      geom_smooth(mapping = aes(x = Year, y = top_five[[input$feature]], color = Country))
     
     return(p)
   })

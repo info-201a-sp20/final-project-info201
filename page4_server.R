@@ -1,4 +1,3 @@
-
 server <- function(input, output) {
   
   emission_data <- read.csv("data/fossil-fuel-co2-emissions-by-nation.csv")
@@ -8,8 +7,6 @@ server <- function(input, output) {
     
     plot_data <- emission_data %>%
       filter(Year > input$year_choice[1], Year < input$year_choice[2])
-    
-    
     
     max <- emission_data %>%
       group_by(Country) %>%

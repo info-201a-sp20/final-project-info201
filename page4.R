@@ -7,7 +7,8 @@ year_input <- sliderInput(
   label = "Year",
   min = year_range[1],
   max = year_range[2],
-  value = year_range
+  value = year_range,
+  width = 250
 )
 
 
@@ -15,7 +16,10 @@ feature_input <- fluidPage(
   
   
   radioButtons("feature", label = h3("Emission Type"),
-                              choices = list("Total" = "Total", "Liquid Fuel" = "Liquid.Fuel", "Gas Fuel" = "Gas.Fuel"), 
+                              choices = list("Total" = "Total", 
+                                             "Liquid Fuel" = "Liquid.Fuel", 
+                                             "Gas Fuel" = "Gas.Fuel",
+                                             "Solid Fuel" = "Solid.Fuel"), 
                               selected = "Total"),
 
 )
