@@ -1,5 +1,5 @@
 sidepanel <- sidebarLayout(
-  selectPanel(
+  sidebarPanel(
     p("As seen through the various charts in the proceeding tabs, fossil fuel carbon emissions have been 
       a rising and stagnant issue for years now. Starting from the effects of the industrial revolution, 
       the effects of fossil fuel emissions have worsen and increased throughout the years. 
@@ -46,7 +46,11 @@ sidepanel <- sidebarLayout(
         ),
         height = "100%", width = "100%"
     )
+  ), 
+  mainPanel(
+    p("Concludng Statements"
   )
+ )
 )
 
 
