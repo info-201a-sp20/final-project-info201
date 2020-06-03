@@ -2,6 +2,9 @@ library("plotly")
 library("ggplot2")
 library("dplyr")
 library("tidyr")
+
+emission_data <- read.csv("data/fossil-fuel-co2-emissions-by-nation.csv")
+
 server <- function(input, output) {
   output$line_graph <- renderPlotly({
 

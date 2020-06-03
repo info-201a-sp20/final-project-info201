@@ -15,6 +15,4 @@ source("page4_server.R")
 source("ui.R")
 source("server.R")
 
-emission_data <- read.csv("data/fossil-fuel-co2-emissions-by-nation.csv")
-
 shinyApp(ui = ui, server = server)
