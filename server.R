@@ -93,6 +93,7 @@ server <- function(input, output) {
     #create plot itself
     amount <- top_five[[input$feature]]
     p <- ggplot(data = top_five) +
+      ggtitle("Fossil Fuel Change of Top Five Countries") +
       geom_smooth(mapping = aes(x = Year, y = amount, color = Country))
 
     ggplotly(p)
