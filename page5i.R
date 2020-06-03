@@ -3,7 +3,13 @@ page5 <- tabPanel(
   headerPanel(strong("Conclusion")),
   sidebarLayout(
   sidebarPanel(
-    p("Concluding Statements")
+    img("",
+        src = paste0(
+          "https://www.power-technology.com",
+          "/wp-content/uploads/sites/7/2020/04/shutterstock_130778297.jpg"
+        ),
+        height = "100%", width = "100%"
+    )
   ),
   mainPanel(
     p("As seen through the various charts in the proceeding tabs, fossil fuel

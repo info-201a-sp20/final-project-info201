@@ -108,7 +108,8 @@ server <- function(input, output) {
       top_n(10) %>%
       arrange(-total_emission)
 
-
+    colnames(emissions) <- c("Country", 
+                             "Total Emissions (Million Metric Tons of C)")
     emissions
   })
 
