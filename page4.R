@@ -47,4 +47,3 @@ page4 <- tabPanel(
     plotlyOutput("plot")
   )
 )
-
